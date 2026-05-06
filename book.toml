@@ -1,0 +1,8 @@
+[book]
+title = "upc_manual"
+authors = ["Zhongzhiy"]
+language = "en"
+
+[output.html.playground]
+editable = true
+
