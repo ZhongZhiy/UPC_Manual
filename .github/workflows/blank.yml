@@ -1,0 +1,34 @@
+name: Deploy mdBook to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # 或者是你的主分支名
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install mdBook
+        run: |
+          # 自动获取最新版本并安装
+          curl -sSL https://api.github.com/repos/rust-lang/mdBook/releases/latest \
+          | grep browser_download_url \
+          | grep x86_64-unknown-linux-gnu.tar.gz \
+          | cut -d '"' -f 4 \
+          | xargs curl -sSL \
+          | tar -xzC /usr/local/bin
+
+      - name: Build Book
+        run: mdbook build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./book  # mdBook 默认生成的静态文件目录
