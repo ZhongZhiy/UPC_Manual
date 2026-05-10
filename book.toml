@@ -1,7 +1,8 @@
 [book]
 title = "upc_manual"
 authors = ["Zhongzhiy"]
-language = "en"
+
+language = "zh-cn"
 
 [output.html.playground]
 editable = true
@@ -9,3 +10,10 @@ editable = true
 [output.html]
 # 你的 GitHub 仓库完整地址
 git-repository-url = "https://github.com/ZhongZhiy/UPC_Manual"
+
+
+[output.html]
+mathjax-support = true
+
+# [preprocessor.admonition]
+# command = "mdbook-admonition"
