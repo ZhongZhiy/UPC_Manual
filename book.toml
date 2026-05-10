@@ -7,6 +7,7 @@ language = "zh-cn"
 [output.html]
 # 你的 GitHub 仓库完整地址
 git-repository-url = "https://github.com/ZhongZhiy/UPC_Manual"
+mathjax-support = true
 
 
 [output.html.playground]
@@ -14,8 +15,6 @@ editable = true
 
 
 
-[output.html]
-mathjax-support = true
 
 # [preprocessor.admonition]
 # command = "mdbook-admonition"
